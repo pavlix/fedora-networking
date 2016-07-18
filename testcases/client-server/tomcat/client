@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+exec curl $DESTINATION:8080
