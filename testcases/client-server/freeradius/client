@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+DESTINATION="${DESTINATION:-localhost}"
+
+exec `which radtest` testUser hello $DESTINATION 0 testing123
