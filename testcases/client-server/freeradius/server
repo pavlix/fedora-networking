@@ -1,6 +1,8 @@
 #!/bin/bash -e
-mkdir -p /run/fedora-networking
+mkdir -p /run/fedora-networking/raddb
 cd /run/fedora-networking
+cp -R /etc/raddb/* raddb/
+chmod -R 755 raddb
 
 DESTINATION="${DESTINATION:-localhost}"
 
@@ -9,8 +11,8 @@ testUser    Cleartext-Password := "hello"
             Reply-Message := "Hello, %{User-Name}"
 EOF
 
-sed -i "s/ipaddr\s*= .*/ipaddr = */" /etc/raddb/clients.conf
+sed -i "s/ipaddr\s*= .*/ipaddr = */" raddb/clients.conf
 
-sed -i "s/ipaddr\s*= .*/ipaddr = $DESTINATION/" /etc/raddb/sites-enabled/default
+sed -i "s/ipaddr\s*= .*/ipaddr = $DESTINATION/" raddb/sites-enabled/default
 
-exec `which radiusd` -X
+exec `which radiusd` -X -d /run/fedora-networking/raddb
