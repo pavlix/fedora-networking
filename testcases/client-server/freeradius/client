@@ -2,4 +2,4 @@
 
 DESTINATION="${DESTINATION:-localhost}"
 
-echo "User-Name = testUser,User-Password=hello" | /usr/bin/radclient $DESTINATION auth testing123
+echo "User-Name = testUser,User-Password=hello" | exec `which radclient` $DESTINATION auth testing123
