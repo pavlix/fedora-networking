@@ -1,0 +1,9 @@
+#!/bin/bash -e
+mkdir -p /run/fedora-networking
+cd /run/fedora-networking
+
+DESTINATION="${DESTINATION:-localhost}"
+
+TMPDIR=`mktemp -d`
+
+rpm --root=$TMPDIR -ivh ftp://$DESTINATION/pub/fedora-networking/dummy-rpm-1.0-1.noarch.rpm
