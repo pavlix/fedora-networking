@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+mkdir -p /run/fedora-networking
+cd /run/fedora-networking
+
+DESTINATION="${DESTINATION:-localhost}"
+
+rsync -av --port 32999 rsync://root@$DESTINATION/ftp/ . 2>&1
