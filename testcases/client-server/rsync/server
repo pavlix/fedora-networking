@@ -3,13 +3,13 @@
 mkdir -p /run/fedora-networking
 cd /run/fedora-networking
 
-mkdir -p /var/ftp/pub
-echo "Hello World!" > /var/ftp/pub/test.file
+mkdir -p ftp
+echo "Hello World!" > /run/fedora-networking/ftp/test.file
 
 cat <<EOF > rsyncd.conf
 
  [ftp]
-        path = /var/ftp/pub
+        path = /run/fedora-networking/ftp
         comment = ftp export area
 EOF
 
