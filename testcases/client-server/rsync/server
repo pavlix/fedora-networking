@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+mkdir -p /run/fedora-networking
+cd /run/fedora-networking
+
+mkdir -p ftp
+echo "Hello World!" > /run/fedora-networking/ftp/test.file
+
+cat <<EOF > rsyncd.conf
+
+ [ftp]
+        path = /run/fedora-networking/ftp
+        comment = ftp export area
+EOF
+
+exec `which rsync` --daemon --config=/run/fedora-networking/rsyncd.conf --port=32999
