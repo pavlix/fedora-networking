@@ -1,0 +1,6 @@
+#!/bin/bash -e
+
+mkdir -p /run/fedora-networking
+cd /run/fedora-networking
+
+exec  /usr/libexec/tomcat/server start
