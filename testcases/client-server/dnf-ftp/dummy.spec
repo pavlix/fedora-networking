@@ -6,9 +6,6 @@ Release:	1
 Epoch:          0
 Group:          Development/Interpreters
 License:        GPL+
-BuildArch:      noarch
-
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %prep
 
