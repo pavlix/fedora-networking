@@ -39,9 +39,7 @@ def main():
         for testcase in suite.testcases:
             try:
                 with open(os.path.join(testcase_path, testcase.name, 'deps')) as deps_file:
-                    for dependency in deps_file.read().splitlines():
-                        if dependency:
-                            dependencies.add(dependency)
+                        dependencies = set([dep for dep in deps_file if dep])
             except IOError:
                 pass
         for dependency in sorted(dependencies):
