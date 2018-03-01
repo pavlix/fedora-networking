@@ -1,0 +1,4 @@
+yum
+rpm-build
+createrepo
+vsftpd
